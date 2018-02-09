@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<openerp>
+    <data>
+        <menuitem
+                name="Data Migration"
+                id="dm_top_menu"
+                sequence="50"/>
+
+        <menuitem
+                name="Data Migration"
+                id="dm_side_top_menu"
+                parent="dm_top_menu"
+                sequence="10"/>
+
+        <!-- ================================================== Begin menuitem of FP customers ================================================ -->
+        <record id="dm_customers" model="ir.actions.act_window">
+	        <field name="name">Customers</field>
+            <field name="res_model">fp.customers</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">click create to add a new record</p>
+            </field>
+        </record>
+
+        <menuitem name="Customers"
+                  action="dm_customers"
+                  id="menu_dm_customers"
+                  sequence="10"
+                  parent="dm_side_top_menu"/>
+        <!-- ================================================== End menuitem of FP customers ================================================ -->
+
+        <!-- ================================================== Begin form view of FP customers ================================================ -->
+        <record id="dm_customer_form" model="ir.ui.view">
+            <field name="name">Customer Form</field>
+            <field name="model">fp.customers</field>
+            <field name="arch" type="xml">
+                <form string="Customer" version="8.0">
+                    <sheet string="Customer">
+                        <group>
+                            <field name="fp_id" />
+                        </group>
+                        <group>
+                            <field name="name"   />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!--========================================================= fp customer form end ================================================-->
+
+       <!-- ================================================== Begin tree view of FP customers ================================================ -->
+        <record id="dm_customer_tree" model="ir.ui.view">
+            <field name="name">Customer Tree</field>
+            <field name="model">fp.customers</field>
+            <field name="arch" type="xml">
+                <tree string="Customer" version="8.0">
+                    <field name="fp_id" />
+                    <field name="name"   />
+                </tree>
+            </field>
+        </record>
+        <!--========================================================= End tree view of FP customers ================================================-->
+
+        <!--========================================================= DO menu Begins ================================================-->
+        <!--action menu has to be created before a menu item is added in order for it to initilized-->
+        <record id="dm_delivery_order" model="ir.actions.act_window">
+	        <field name="name">Delivery Orders</field>
+            <field name="res_model">custom.invoice</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">click create to add a new record</p>
+            </field>
+        </record>
+
+        <menuitem
+            name="Delivery Orders"
+            action="dm_delivery_order"
+            id="menu_dm_delivery_order"
+            sequence="20"
+            parent="dm_side_top_menu">
+        </menuitem>
+        <!--========================================================= DO menu end ================================================-->
+
+        <!--========================================================= DO form start ================================================-->
+        <record id="do_form" model="ir.ui.view">
+            <field name="name">DO Form</field>
+            <field name="model">custom.invoice</field>
+            <field name="arch" type="xml">
+                <form string="Incharge Store" version="8.0">
+                    <header>
+                        <button name="validate" type="object" string="Validate" class="oe_highlight" />
+                        <button name="cancel" type="object" string="Cancel" class="oe_highlight" />
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirmed" statusbar_colors='{"draft":"blue","confirmed":"blue"}'/>
+                    </header>
+                    <sheet>
+                        <h1>Delivery Order</h1>
+                        <group>
+                            <field name="do_number" />
+                            <field name="partner_id" />
+                        </group>
+                        <group>
+                            <field name="invoice_number"/>
+                            <field name="date" />
+                        </group>
+                        <notebook>
+                            <page string="Products" placeholder="add a product">
+                                <field name="products">
+                                    <tree editable="top" string="Products" >
+                                        <field name="name" />
+                                        <field name="quantity"/>
+                                        <field name="price"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!--========================================================= DO form end ================================================-->
+        <!--========================================================= DO tree start ================================================-->
+       <record id="do_tree" model="ir.ui.view">
+           <field name="name">DO Tree</field>
+            <field name="model">custom.invoice</field>
+            <field name="arch" type="xml">
+               <tree string="DO Tree" colors="blue:state == 'confirmed';gray:state == 'draft'" version="8.0" default_order="date asc">
+                   <field name="date"/>
+                   <field name="do_number"/>
+                   <field name="invoice_number"/>
+                   <field name="partner_id"/>
+               </tree>
+            </field>
+       </record>
+        <!--========================================================= DO tree end ================================================-->
+    </data>
+</openerp>
