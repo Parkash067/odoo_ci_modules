@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <report
+            id="report_certificate"
+            string="Certificate"
+            model="custom.invoice.lines"
+            report_type="qweb-pdf"
+            file="custom_data_migration.certificate_print"
+            name="custom_data_migration.certificate_print"
+        />
+    </data>
+</openerp>

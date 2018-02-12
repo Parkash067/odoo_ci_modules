@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="certificate_print">
+           <t t-call='report.html_container'>
+               <t t-foreach="docs" t-as="certificate">
+                   <t>
+                      <div class="page">
+                          <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s'%('QR', certificate.generate_qr_code(), 100, 100)" style="float:right"/>
+                          <t t-if="certificate.check_issuance()==1">
+                               <h1>Duplicate Certificate</h1>
+                          </t>
+                          <t t-if="certificate.check_issuance()==0">
+                              <h1>Certificate</h1>
+                              <span t-esc="certificate.issuance()" />
+                          </t>
+                      </div>
+                   </t>
+               </t>
+           </t>
+        </template>
+    </data>
+</openerp>
