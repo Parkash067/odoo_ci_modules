@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <report
+                id="sale_custom_invoice_pdf"
+                model="account.invoice"
+                string="Sales Tax Invoice"
+                report_type="qweb-pdf"
+                name="custom_reports.custom_sale_invoice"
+                attachment_use="False"
+                file="custom.custom_sale_invoice"
+        />
+
+    </data>
+</openerp>

@@ -6,6 +6,7 @@
                <t t-foreach="docs" t-as="certificate">
                    <t>
                       <div class="page">
+                          <span t-esc="certificate.inc_in_counter()"/>
                           <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s'%('QR', certificate.generate_qr_code(), 100, 100)" style="float:right"/>
                           <t t-if="certificate.check_issuance()==1">
                                <h1>Duplicate Certificate</h1>

@@ -232,6 +232,7 @@
                     <field name="c_c"/>
                     <field name="quantity"/>
                     <field name="price"/>
+                    <field name="counter"/>
                 </tree>
             </field>
         </record>

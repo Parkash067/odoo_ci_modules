@@ -43,8 +43,13 @@ class custom_invoice_lines(osv.osv):
         'invoice': fields.many2one('custom.invoice', 'Invoice', store=True),
         'do_number': fields.related('invoice', 'do_number', type='char', string='DO Number',readonly=True),
         'certificate_issuance': fields.integer('Issunance Times', store=True, default=0),
-        'qr_code': fields.binary('QR Code', store=True)
+        'qr_code': fields.binary('QR Code', store=True),
+        'counter': fields.integer('Counter', store=True, default=0)
     }
+
+    def inc_in_counter(self):
+        counter = int(self.counter) + 1
+        self.write({'counter': counter})
 
     def generate_qr_code(self):
        return "Engine Number : "+str(self.product_id.engine_number) + "\n" + "Chasis Number : " + str(self.product_id.chasis_number) + "\n" + "Model : " + self.product_id.model + "\n"+ "Brand : " + self.product_id.brand + "\n" +"HP : " + self.product_id.c_c + "\n" +" 'MANUFACTURED BY SARA AUTOMOBILE INDUSTERIES'"
