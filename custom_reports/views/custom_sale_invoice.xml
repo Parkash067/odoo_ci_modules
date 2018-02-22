@@ -17,20 +17,20 @@
                                   <span t-esc="'%s' %res_company.city"  style="font-size:18px;font-weight:bold;"/><br/>
                                   <span style="font-size:18px;"><strong>Tel: </strong></span><span t-esc="'%s' %res_company.phone" style="font-size:18px;font-weight:bold;"/>
                               </div>
-                              <h2 style="border:2px solid grey;border-radius:5px;padding:10px;
+                              <h2 style="border:1px solid black;border-radius:5px;padding:10px;
                                          max-width:100%;height:auto;width:60%;margin-left:auto;
                                          margin-right:auto;text-align:center;background:lightgrey;">
                                   Sales Tax Invoice
                               </h2>
-                              <h3 align="center">Sales Tax Registration No.: 17-00-8711-009-55</h3><hr style="2px solid black"/>
+                              <h3 align="center">Sales Tax Registration No.: 17-00-8711-009-55</h3><hr style="border-top:1px solid black;"/>
                               <div style="font-size:18px">
                                    <div t-if="account_invoice.id" style="display:inline-block;">
                                       <strong>Invoice No. </strong>
-                                      ______________________________
+                                      __________________
                                   </div>
                                   <div t-if="account_invoice.date_invoice" style="display:inline-block; float:right;">
                                       <strong>DATE: </strong>
-                                      ______________________________
+                                      __________________
                                   </div>
                               </div>
                               <br/><br/>
@@ -53,50 +53,69 @@
                                       <!--<strong>NTN No. </strong> <span t-field="account_invoice.supplier_id.ntn_num"/>-->
                                   <!--</span>-->
                               <!--</div>-->
-                              <div style="font-size:18px; padding:10px;width:100%;display: inline-block;float:left">
-                                  <strong style="font-size:18px">Buyer's Name: </strong>
-                                  <span t-field="account_invoice.partner_id.name"/><br/>
-                                  <strong style="font-size:18px; margin-top:5px;">Address: </strong>
-                                  <span t-if="account_invoice.partner_id.street">
-                                      <span t-field="account_invoice.partner_id.street"/>
+                               <div style="font-size:18px; padding:10px;width:100%;display: inline-block;float:left">
+                                   <div>
+                                       <div style="display:inline-block;"><strong style="font-size:18px">Buyer's Name: </strong></div>
+                                       <div t-field="account_invoice.partner_id.name" style=" width:70%; border-bottom:1px solid black; display:inline-block;margin-left:50px;"/>
+                                   </div><br/>
+                                   <div>
+                                       <div style="display:inline-block;"><strong style="font-size:18px">Address: </strong></div>
+                                       <div t-if="account_invoice.partner_id.street" style=" width:70%; border-bottom:1px solid black; display:inline-block;margin-left:100px;">
+                                           <span t-field="account_invoice.partner_id.street"/>
+                                           <span t-if="account_invoice.partner_id.street2">
+                                               ,<span t-field="account_invoice.partner_id.street2"/>
+                                           </span>
+                                           <span t-if="account_invoice.partner_id.city">
+                                               <span t-field="account_invoice.partner_id.city"/>
+                                           </span>
+                                       </div>
+                                   </div><br/>
+                                   <div>
+                                       <div style="display:inline-block;"><strong style="margin-top:5px;">Sales Tax No.<sub>(IF ANY)</sub>:</strong></div>
+                                       <div style="width:70%; border-bottom:1px solid black; display:inline-block;"/>
+                                   </div>
+                                  <!--.<br/><br/>-->
+                                  <!--<strong style="font-size:18px;">Address: </strong>
+                                  <span style="font-size:18px;margin-left:120px">
+                                      <u><span t-if="account_invoice.partner_id.street">
+                                          <span t-field="account_invoice.partner_id.street"/>
+                                      </span>
+                                      <span t-if="account_invoice.partner_id.street2">
+                                          ,<span t-field="account_invoice.partner_id.street2"/>
+                                      </span>
+                                      <span t-if="account_invoice.partner_id.city">
+                                          <span t-field="account_invoice.partner_id.city"/><br/><br/>
+                                      </span>
+                                      </u>
                                   </span>
-                                  <span t-if="account_invoice.partner_id.street2">
-                                      ,<span t-field="account_invoice.partner_id.street2"/>
-                                  </span>
-                                  <span t-if="account_invoice.partner_id.city">
-                                      <span t-field="account_invoice.partner_id.city"/>.<br/>
-                                  </span>
-                                  <span t-if="account_invoice.partner_id.phone">
-                                      <strong style="margin-top:5px;">Telephone No.: </strong> <span t-field="account_invoice.partner_id.phone"/><br/>
-                                  </span>
+                                  &lt;!&ndash;<span t-if="account_invoice.partner_id.phone">&ndash;&gt;
+                                      &lt;!&ndash;<strong style="margin-top:5px;">Telephone No.: </strong> <span t-field="account_invoice.partner_id.phone"/><br/>&ndash;&gt;
+                                  &lt;!&ndash;</span>&ndash;&gt;
                                   <span>
                                       <strong style="margin-top:5px;">Sales Tax No.<sub>(IF ANY)</sub>:</strong>
-                                  </span>
+                                  </span>-->
                                   <!--<span t-if="account_invoice.partner_id.ntn_num">-->
                                       <!--<strong>NTN No. </strong> <span t-field="account_invoice.partner_id.ntn_num"/>-->
                                   <!--</span>-->
                               </div>
-                              <br/><br/><br/><br/><br/><br/><br/><br/>
+                              <br/><br/><br/><br/><br/><br/><br/><br/><br/>
                               <!--<strong>Terms of Sale: </strong>-->
 
-                              <div style="font-size:16px; border:2px solid grey; padding:12px;border-radius:10px;width:1000px;">
-                              <table class="table table-condensed" style="font-size:16px">
-                                  <thead border="1">
+                              <div style="font-size:16px; border:1px solid black; border-radius:10px;width:1000px;height:288px;">
+                              <table class="table table-condensed" style="font-size:16px; width:998px;border-color:black;">
+                                  <thead style="border-bottom:1px solid black">
                                       <tr>
-                                          <td>Qty.</td>
-                                          <td>Description</td>
-                                          <td class="text-right">Unit Price</td>
-                                          <td class="text-right">Total Exclu. Taxes</td>
+                                          <td style="border-right: 1px solid black; padding:10px;">Qty.</td>
+                                          <td style="border-right: 1px solid black; padding:10px;">Description</td>
+                                          <td  style="border-right: 1px solid black; padding:10px;">Unit Price</td>
+                                          <!--<td class="text-right" style="border-right: 1px solid #ddd;">Total Exclu. Taxes</td>-->
                                           <t t-foreach="account_invoice.invoice_line" t-as="l">
                                              <t t-foreach="l.invoice_line_tax_id" t-as="taxes">
-                                              <td class="text-right" >
+                                              <td style="border-right: 1px solid black; padding:10px;" >
                                                   <span t-esc="taxes.name" />
                                               </td>
                                              </t>
                                           </t>
-                                          <!--<td class="text-right">Sales Tax 17%</td>-->
-                                          <!--<td class="text-right">Further TAX 2%</td>-->
-                                          <!--<td class="text-right">WHT</td>-->
                                           <!--<th class="text-right">Rate of Sales Tax</th>-->
                                           <!--<th class="text-right">Amount of Sales Tax</th>-->
                                           <!--&lt;!&ndash;<td>Further Tax on Un-registered Person</td>&ndash;&gt;-->
@@ -105,47 +124,38 @@
                                   </thead>
                                   <tbody class="invoice_tbody">
                                       <tr t-foreach="account_invoice.invoice_line" t-as="l">
-                                          <td>
+                                          <td style="border-right: 1px solid black; padding:10px; border-top:1px solid black !important;">
                                               <span t-esc="round(l.quantity)"/>
                                           </td>
-                                          <td>
-                                              <span t-esc="l.product_id.name"/><br/><span t-esc="l.product_id.description"/>
+                                          <td style="border-right: 1px solid black; padding:10px; border-top:1px solid black !important;">
+                                              <span t-esc="l.product_id.name"/><br/><br/><span t-esc="l.product_id.description"/><br/><br/><br/><br/><br/><br/><br/><br/>
                                           </td>
-                                          <td class="text-right" >
-                                              <span t-field="l.price_unit" />
-                                          </td>
-                                          <td class="text-right" >
-                                              <span t-field="l.price_subtotal" />
+                                          <td style="border-right: 1px solid black; padding:10px; border-top:1px solid black !important;">
+                                              <span t-esc="'{0:,.2f}'.format(int(l.price_unit))" />
                                           </td>
                                           <t t-foreach="l.invoice_line_tax_id" t-as="taxes">
-                                              <td class="text-right" >
-                                                  <span t-esc="taxes.amount*l.price_unit" />
+                                              <td  style="border-right: 1px solid black; padding:10px; border-top:1px solid black !important;">
+                                                  <span t-esc="'{0:,.2f}'.format(int(taxes.amount*l.price_unit))" />
                                                   <t t-set="total_tax" t-value="total_tax+(taxes.amount*l.price_unit)"/>
                                               </td>
                                           </t>
-                                          <!--<td class="text-right" >
-                                             <span t-field="l.price_subtotal"/>
-                                          </td>-->
-                                          <td class="text-right" >
-                                             <span t-esc="l.price_subtotal+total_tax"/>
+                                          <td class="text-right" style="border-top:1px solid black !important;">
+                                              <span t-esc="'{0:,.2f}'.format(int(total_tax+l.price_subtotal))"/>
                                           </td>
                                       </tr>
                                   </tbody>
                               </table>
-                          </div><br/><br/>
+                          </div><br/>
                           <div class="row"><br/>
                               <div class="col-xs-4 pull-right">
                                   <table class="table table-condensed" style="font-size:16px">
                                           <t>
                                               <tr>
-                                                  <td>
+                                                  <td style="border-top:1px solid black !important;">
                                                       <strong>TOTAL</strong>
                                                   </td>
-                                                  <!--<td class="text-right">
-                                                      <strong><span t-esc="account_invoice.amount_untaxed"/></strong>
-                                                  </td>-->
-                                                  <td class="text-right">
-                                                      <strong><span t-esc="account_invoice.amount_total"/></strong>
+                                                  <td class="text-right" style="border-top:1px solid black !important;">
+                                                      <strong><span t-esc="'{0:,.2f}'.format(int(account_invoice.amount_total))"/></strong>
                                                   </td>
                                               </tr>
                                           </t>
@@ -156,33 +166,25 @@
                               <div class="col-xs-4 pull-left">
                                   <table class="table table-condensed" style="font-size:16px">
                                       <tr>
-                                          <td>
+                                          <td style="border-top:1px solid black !important;">
                                               <strong>Exclu. Net Tax Value</strong>
                                           </td>
-                                          <td class="text-right">
-                                              <strong><span t-esc="round(account_invoice.amount_untaxed)"/></strong>
+                                          <td class="text-right" style="border-top:1px solid black !important;">
+                                              <strong><span t-esc="'{0:,.2f}'.format(int(round(account_invoice.amount_untaxed)))"/></strong>
                                           </td>
                                       </tr>
                                       <t t-foreach="account_invoice.tax_line" t-as="l">
                                           <tr>
-                                              <td><strong><span t-esc="l.name"/></strong></td>
-                                              <td class="text-right"><strong><span t-esc="l.amount"/></strong></td>
+                                              <td style="border-top:1px solid black !important;"><strong><span t-esc="l.name"/></strong></td>
+                                              <td class="text-right" style="border-top:1px solid black !important;"><strong><span t-esc="'{0:,.2f}'.format(int(l.amount))"/></strong></td>
                                           </tr>
                                       </t>
-                                      <!--<tr>-->
-                                          <!--<td>-->
-                                              <!--<strong>Sales Tax</strong>-->
-                                          <!--</td>-->
-                                          <!--<td class="text-right">-->
-                                              <!--<strong><span t-esc="round(account_invoice.amount_tax)"/></strong>-->
-                                          <!--</td>-->
-                                      <!--</tr>-->
                                       <tr>
-                                          <td>
+                                          <td style="border-top:1px solid black !important;">
                                               <strong>Total Value inclu. Tax</strong>
                                           </td>
-                                          <td class="text-right">
-                                              <strong><span t-esc="round(account_invoice.amount_total)"/></strong>
+                                          <td class="text-right" style="border-top:1px solid black !important;">
+                                              <strong><span t-esc="'{0:,.2f}'.format(int(account_invoice.amount_total))"/></strong>
                                           </td>
                                       </tr>
                                   </table>
@@ -204,7 +206,7 @@
                                  <!--as the goods sold to you as per this invoice were imported by us in our name and tax has been paid there on under section-->
                                  <!--50(5) of the ordinance, thus making such goods exempt from further taxation (SRO#97(1) dated 12 February 2002)</span>-->
                               <!--</div>-->
-                          <!--</div>--><br/><br/>
+                          <!--</div>-->
                           <!--<div class="row"><br/><br/>-->
                               <!--<div class="pull-left" style="font-size:16px">-->
                                  <!--<span>-->
@@ -222,7 +224,6 @@
                                      <!--</small>-->
                                  <!--</span>-->
                               <!--</div>-->
-                          <!--</div>-->
                       </div>
                    </t>
                </t>
