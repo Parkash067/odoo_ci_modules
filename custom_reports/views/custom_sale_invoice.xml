@@ -34,25 +34,6 @@
                                   </div>
                               </div>
                               <br/><br/>
-                              <!--<div style="font-size:15px; border:2px solid grey; padding:10px;border-radius:10px;width:400px;display:inline-block;">-->
-                                  <!--<strong style="font-size:16px">Supplier's Name and Address:</strong><br/>-->
-                                  <!--<span t-field="account_invoice.supplier_id.name"/><br/>-->
-                                  <!--<span t-if="account_invoice.supplier_id.c_street">-->
-                                      <!--<span t-field="account_invoice.supplier_id.c_street"/><br/>-->
-                                  <!--</span>-->
-                                  <!--<span t-if="account_invoice.supplier_id.c_street2">-->
-                                      <!--<span t-field="account_invoice.supplier_id.c_street2"/><br/>-->
-                                  <!--</span>-->
-                                  <!--<span t-if="account_invoice.supplier_id.city">-->
-                                      <!--<span t-field="account_invoice.supplier_id.city"/><br/>-->
-                                  <!--</span>-->
-                                  <!--<span t-if="account_invoice.supplier_id.phone">-->
-                                      <!--<strong>Telephone No. </strong> <span t-field="account_invoice.supplier_id.phone"/><br/>-->
-                                  <!--</span>-->
-                                  <!--<span t-if="account_invoice.supplier_id.ntn_num">-->
-                                      <!--<strong>NTN No. </strong> <span t-field="account_invoice.supplier_id.ntn_num"/>-->
-                                  <!--</span>-->
-                              <!--</div>-->
                                <div style="font-size:18px; padding:10px;width:100%;display: inline-block;float:left">
                                    <div>
                                        <div style="display:inline-block;"><strong style="font-size:18px">Buyer's Name: </strong></div>
@@ -74,32 +55,8 @@
                                        <div style="display:inline-block;"><strong style="margin-top:5px;">Sales Tax No.<sub>(IF ANY)</sub>:</strong></div>
                                        <div style="width:70%; border-bottom:1px solid black; display:inline-block;"/>
                                    </div>
-                                  <!--.<br/><br/>-->
-                                  <!--<strong style="font-size:18px;">Address: </strong>
-                                  <span style="font-size:18px;margin-left:120px">
-                                      <u><span t-if="account_invoice.partner_id.street">
-                                          <span t-field="account_invoice.partner_id.street"/>
-                                      </span>
-                                      <span t-if="account_invoice.partner_id.street2">
-                                          ,<span t-field="account_invoice.partner_id.street2"/>
-                                      </span>
-                                      <span t-if="account_invoice.partner_id.city">
-                                          <span t-field="account_invoice.partner_id.city"/><br/><br/>
-                                      </span>
-                                      </u>
-                                  </span>
-                                  &lt;!&ndash;<span t-if="account_invoice.partner_id.phone">&ndash;&gt;
-                                      &lt;!&ndash;<strong style="margin-top:5px;">Telephone No.: </strong> <span t-field="account_invoice.partner_id.phone"/><br/>&ndash;&gt;
-                                  &lt;!&ndash;</span>&ndash;&gt;
-                                  <span>
-                                      <strong style="margin-top:5px;">Sales Tax No.<sub>(IF ANY)</sub>:</strong>
-                                  </span>-->
-                                  <!--<span t-if="account_invoice.partner_id.ntn_num">-->
-                                      <!--<strong>NTN No. </strong> <span t-field="account_invoice.partner_id.ntn_num"/>-->
-                                  <!--</span>-->
                               </div>
                               <br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                              <!--<strong>Terms of Sale: </strong>-->
 
                               <div style="font-size:16px; border:1px solid black; border-radius:10px;width:1000px;height:288px;">
                               <table class="table table-condensed" style="font-size:16px; width:998px;border-color:black;">
@@ -191,39 +148,6 @@
                               </div>
                           </div>
                           </div>
-                              <br/><br/>
-                          <!--<div class="row">-->
-                              <!--<div class="pull-left" style="font-size:16px">-->
-                                  <!--<t>-->
-                                      <!--<span>Amount In Words: <span t-esc="account_invoice.amount_to_text(round(account_invoice.amount_total),'euro')"/></span>-->
-                                  <!--</t>-->
-                              <!--</div>-->
-                          <!--</div>-->
-                          <!--<div class="row"><br/><br/><br/><br/><br/><br/><br/><br/>-->
-                              <!--<div class="pull-left" style="font-size:16px">-->
-                                 <!--<span>-->
-                                     <!--Note: There is no requirement to deduct any with-holding tax under section 50(4) of the Income Tax 1979,(the ordinance),-->
-                                 <!--as the goods sold to you as per this invoice were imported by us in our name and tax has been paid there on under section-->
-                                 <!--50(5) of the ordinance, thus making such goods exempt from further taxation (SRO#97(1) dated 12 February 2002)</span>-->
-                              <!--</div>-->
-                          <!--</div>-->
-                          <!--<div class="row"><br/><br/>-->
-                              <!--<div class="pull-left" style="font-size:16px">-->
-                                 <!--<span>-->
-                                     <!--<small><em>-->
-                                         <!--Signature:_________________________</em>-->
-                                     <!--</small>-->
-                                 <!--</span>-->
-                              <!--</div>-->
-                          <!--</div>-->
-                           <!--<div class="row"><br/><br/>-->
-                              <!--<div class="pull-left" style="font-size:16px">-->
-                                 <!--<span>-->
-                                     <!--<small><em>-->
-                                         <!--Prepared by Accountant Manager <br/><span t-field="account_invoice.create_date"/></em>-->
-                                     <!--</small>-->
-                                 <!--</span>-->
-                              <!--</div>-->
                       </div>
                    </t>
                </t>
