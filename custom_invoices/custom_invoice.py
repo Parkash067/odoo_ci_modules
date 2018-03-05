@@ -6,6 +6,16 @@ from datetime import date,time
 from openerp.tools import amount_to_text_en
 
 
+class custom_invoice(osv.osv):
+    _inherit = "account.invoice"
+    _columns = {
+
+    }
+
+    def invoice_format_parser(self):
+        if len(self.tax_line)==2:
+            return [{'tax_name':self.tax_line[0].name,'amount':self.tax_line[0].amount},{'tax_name':self.tax_line[1].name,'amount':self.tax_line[1].amount}]
+
 class dummy_invoice(osv.osv):
     _name = "dummy.invoice"
     _rec_name = "partner_id"

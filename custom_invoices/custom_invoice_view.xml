@@ -2,7 +2,7 @@
 <openerp>
     <data>
         <record id="dummy_invoice_view" model="ir.actions.act_window">
-	        <field name="name">Dummy Invoices</field>
+	        <field name="name">Sales Tax Invoices</field>
             <field name="res_model">dummy.invoice</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
